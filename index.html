@@ -1,138 +1,15 @@
-<!DOCTYPE html>
-<html lang="pl">
-
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Industria77 - Strona w budowie" />
-    <title>Industria77 - Strona w budowie</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #414141;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .hero {
-            background-color: #333;
-            color: white;
-            padding: 50px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 10;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-size: 16px;
-        }
-
-        .cta-button:hover {
-            background-color: #0056b3;
-        }
-
-        .work-in-progress {
-            font-size: 20px;
-            margin-top: 30px;
-            color: #ffcc00;
-        }
-
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-    </style>
-</head>
-
-<body>
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Industria77</h1>
-            <p>Kliknij przycisk poniżej!</p>
-            <a href="https://dc.771477.xyz" class="cta-button" aria-label="Get Started with Our Services">Nasz Serwer Discord</a>
-            <p class="work-in-progress">Prace nad stroną trwają...</p>
-        </div>
-    </section>
-
-    <canvas id="canvas"></canvas>
-
-    <script>
-        const canvas = document.getElementById('canvas');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const points = [];
-        const numPoints = 50;
-
-        for (let i = 0; i < numPoints; i++) {
-            points.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                vx: Math.random() * 2 - 1,
-                vy: Math.random() * 2 - 1
-            });
-        }
-
-        function drawLines() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            for (let i = 0; i < points.length; i++) {
-                for (let j = i + 1; j < points.length; j++) {
-                    const distance = Math.sqrt(
-                        Math.pow(points[i].x - points[j].x, 2) + Math.pow(points[i].y - points[j].y, 2)
-                    );
-
-                    if (distance < 150) {
-                        ctx.beginPath();
-                        ctx.moveTo(points[i].x, points[i].y);
-                        ctx.lineTo(points[j].x, points[j].y);
-                        ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
-                        ctx.lineWidth = 1;
-                        ctx.stroke();
-                    }
-                }
-            }
-
-            for (let i = 0; i < points.length; i++) {
-                points[i].x += points[i].vx;
-                points[i].y += points[i].vy;
-
-                if (points[i].x > canvas.width || points[i].x < 0) points[i].vx = -points[i].vx;
-                if (points[i].y > canvas.height || points[i].y < 0) points[i].vy = -points[i].vy;
-
-                ctx.beginPath();
-                ctx.arc(points[i].x, points[i].y, 3, 0, Math.PI * 2);
-                ctx.fillStyle = '#ffffff';
-                ctx.fill();
-            }
-
-            requestAnimationFrame(drawLines);
-        }
-
-        drawLines();
-    </script>
-</body>
-
+    <title>industria77</title>
+    <meta name="description" content="industria77 - Download our software and join our community">
+    <script type="module" crossorigin src="/assets/index-B7Vq7R9J.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Cw48SCqt.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
